@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <title>Document</title>
 
 </head>
@@ -25,20 +26,31 @@
   // uso de POO- Programacion orientada a objetos
   $stmt = $link->run($sql, [$usr, $usr, $hashed_pass]);
   $row=$stmt->fetch(PDO::FETCH_ASSOC);
-if(!$row){
- echo "Los datos ingresados no son validos !";
-}
- else
-{
-    session_start();
-    date_default_timezone_set('America/Argentina/Buenos_Aires');
-    $_SESSION['time'] = date('H:i:s');
-    $_SESSION['username'] = $usr;
-    $_SESSION['logueado']=true;
-    header("location:welcome.php");
-}
 
-}
+  if (!$row) {
+if (!$row) {
     ?>
+        <div class="alert alert-danger">
+          <a href="login.html" class="close" data-dismiss="alert">×</a>
+          <div class="text-center">
+            <h5><strong>¡Error!</strong> Login Invalido.</h5>
+          </div>
+        </div>
+    <?php
+
+      } else {
+
+        session_start();
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $_SESSION['time'] = date('H:i:s');
+        $_SESSION['username'] = $usr;
+        $_SESSION['logueado'] = true;
+        header("location:welcome.php");
+      }
+    }
+}
+?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 </html>
