@@ -120,3 +120,4 @@ COMMIT;
 
 # Listado de productos con sus correspondientes categorias.
 select products.image,products.price,products.product_name,products.start_date,categories.category_name from products inner join categories on products.id_category=categories.id_category;
+

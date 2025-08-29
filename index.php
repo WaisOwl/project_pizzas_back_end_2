@@ -49,8 +49,7 @@
 include_once("config_product.php");
 include_once("db.class.php");
 $link=new Db();
-$sql="SELECT products.id_product, products.image, products.price, products.product_name, products.start_date, categories.category_name FROM products 
-INNER JOIN categories ON products.id_category = categories.id_category";
+$sql="select p.id_product,c.category_name,p.image,p.product_name,p.price, date_format(p.start_date,'%d/%m/%Y') as start_date from products p inner join categories c on p.id_category=c.id_category order by c.category_name,p.price";
 $stmt=$link->run($sql);
 $data=$stmt->fetchAll();
 //recuperar un producto y llevarlo al li
