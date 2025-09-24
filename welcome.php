@@ -116,7 +116,21 @@
 
     </script>
 
+    <script>
+        let table = new DataTable('#myTable', {
+            info: false,
+            ordering: true,
+            paging: false,
+            // Descargar el archivo es-MX.json desde la pagina: https://datatables.net/plug-ins/i18n/Spanish_Argentina.html
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.3.4/i18n/es-AR.json',
+            },
+        });
+
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.4/bootbox.min.js"> </script>
 </body>
+
 
